@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>TechPulse — All Tech News. One Place.</title>
+<meta name="description" content="TechPulse aggregates the latest technology stories from across the web into one intelligent feed." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%233b82f6'/><path d='M9 20 L16 9 L23 20' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='16' cy='22.5' r='1.8' fill='%2322d3ee'/></svg>" />
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#/" class="logo" aria-label="TechPulse home">
+      <span class="logo-mark" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="url(#lg)"/><path d="M9 20 L16 9 L23 20" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="22.5" r="1.8" fill="#22d3ee"/><defs><linearGradient id="lg" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#3b82f6"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient></defs></svg></span>
+      <span class="logo-word">TECH<span>PULSE</span></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary">
+      <a href="#/" data-nav="home" class="active">Home</a>
+      <a href="#/latest" data-nav="latest">Latest</a>
+      <a href="#/trending" data-nav="trending">Trending</a>
+      <a href="#/category/ai" data-nav="ai">AI</a>
+      <a href="#/category/mobile" data-nav="mobile">Mobile</a>
+      <a href="#/category/hardware" data-nav="hardware">Hardware</a>
+      <a href="#/category/gaming" data-nav="gaming">Gaming</a>
+      <a href="#/category/cybersecurity" data-nav="cybersecurity">Cybersecurity</a>
+      <a href="#/category/science" data-nav="science">Science</a>
+      <a href="#/category/space" data-nav="space">Space</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="searchBtn" aria-label="Open search">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <span class="search-kbd">⌘K</span>
+      </button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg id="themeIconMoon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg id="themeIconSun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="icon-btn saved-btn" href="#/saved" aria-label="Saved stories">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        <span class="saved-count" id="savedCount" hidden>0</span>
+      </a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <nav aria-label="Mobile">
+      <a href="#/">Home</a><a href="#/latest">Latest</a><a href="#/trending">Trending</a>
+      <a href="#/category/ai">AI</a><a href="#/category/mobile">Mobile</a>
+      <a href="#/category/hardware">Hardware</a><a href="#/category/gaming">Gaming</a>
+      <a href="#/category/cybersecurity">Cybersecurity</a><a href="#/category/science">Science</a>
+      <a href="#/category/space">Space</a><a href="#/saved">Saved Stories</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= SEARCH OVERLAY ================= -->
+<div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-label="Search" hidden>
+  <div class="search-backdrop" data-close-search></div>
+  <div class="search-panel">
+    <div class="search-box">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" placeholder="Search technology news..." autocomplete="off" aria-label="Search technology news" />
+      <button class="search-esc" data-close-search aria-label="Close search">ESC</button>
+    </div>
+    <div class="search-hints" id="searchHints">
+      <span>Try:</span>
+      <button data-q="RTX 5090">RTX 5090</button><button data-q="OpenAI">OpenAI</button>
+      <button data-q="iPhone">iPhone</button><button data-q="Google">Google</button>
+      <button data-q="Cybersecurity">Cybersecurity</button>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+</div>
+
+<main id="main">
+<!-- ================= HOME VIEW ================= -->
+<div id="view-home">
+  <!-- HERO -->
+  <section class="hero" aria-label="Intro">
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+    <div class="hero-glow glow-a" aria-hidden="true"></div>
+    <div class="hero-glow glow-b" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow"><span class="pulse-dot"></span> <span id="heroEyebrowState">LIVE FEED</span> · <span id="heroSourceCount">…</span> SOURCES CONNECTED</div>
+      <h1>All Tech News.<br /><em>One Place.</em></h1>
+      <p>Discover the latest technology stories from across the web, organized in one intelligent feed.</p>
+      <div class="hero-cta">
+        <a href="#/latest" class="btn btn-primary">Explore Latest <span aria-hidden="true">→</span></a>
+        <a href="#/trending" class="btn btn-ghost">Trending Stories</a>
+      </div>
+      <!-- LIVE STATUS -->
+      <div class="live-bar" role="status" aria-live="polite">
+        <span class="live-pill" id="livePill"><span class="live-dot"></span> LIVE</span>
+        <span class="live-updated" id="liveUpdated">Last updated: connecting…</span>
+        <span class="live-sep"></span>
+        <span class="live-stat"><strong id="statSources">…</strong> sources</span>
+        <span class="live-stat"><strong id="statStories">…</strong> live stories</span>
+        <button class="live-refresh" id="refreshBtn" aria-label="Refresh feed">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 3v6h-6"/></svg>
+          Refresh
+        </button>
+      </div>
+    </div>
+    <div class="new-stories-toast" id="newStoriesToast" hidden>
+      <span><strong id="newStoriesCount">0</strong> new stories</span>
+      <button id="showNewBtn">Show new stories</button>
+    </div>
+  </section>
+
+  <!-- TOP STORIES -->
+  <section class="section" id="topSection" aria-label="Top Stories">
+    <div class="section-head">
+      <div><p class="kicker">Editor's selection</p><h2>Top Stories</h2></div>
+      <a class="see-all" href="#/latest">View all <span>→</span></a>
+    </div>
+    <p class="muted small" style="margin:-12px 0 16px">Ranked live from the current RSS pull — newest and most-covered stories first.</p>
+    </div>
+    <div class="top-grid" id="topGrid">
+      <div class="skel skel-hero"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div><div class="skel"></div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" aria-label="Categories">
+    <div class="section-head">
+      <div><p class="kicker">Browse by topic</p><h2>Categories</h2></div>
+    </div>
+    <div class="cat-row" id="catRow" role="tablist" aria-label="Filter by category"></div>
+  </section>
+
+  <div class="two-col">
+    <!-- LATEST -->
+    <section class="section" id="latestSection" aria-label="Latest News">
+      <div class="section-head">
+        <div><p class="kicker">Fresh off the wire</p><h2 id="feedTitle">Latest News</h2></div>
+        <span class="feed-count" id="feedCount"></span>
+      </div>
+      <div class="news-list" id="newsList"></div>
+      <div id="feedEmpty" hidden></div>
+      <div class="load-more-wrap"><button class="btn btn-ghost" id="loadMoreBtn">Load More</button></div>
+    </section>
+    <!-- TRENDING -->
+    <aside class="section" id="trendingSection" aria-label="Trending Now">
+      <div class="trend-card">
+        <div class="section-head"><div><p class="kicker">Internal score · recency + coverage</p><h2>Trending Now</h2></div><span class="live-mini"><span class="live-dot"></span></span></div>
+        <ol class="trend-list" id="trendList"></ol>
+        <div class="divider"></div>
+        <h3 class="mini-title">Recently Viewed</h3>
+        <div id="recentlyViewed" class="recent-list"><p class="muted">Nothing yet — open a story to see it here.</p></div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- COVERAGE -->
+  <section class="section" aria-label="Coverage">
+    <div class="section-head"><div><p class="kicker">Multi-source intelligence</p><h2>Top Coverage Clusters</h2></div></div>
+    <div class="coverage-grid" id="coverageGrid"></div>
+  </section>
+
+  <!-- SOURCES -->
+  <section class="section" id="sourcesSection" aria-label="News Sources">
+    <div class="section-head"><div><p class="kicker">Live ingest status</p><h2>Sources</h2></div>
+      <a class="see-all" href="#/latest">Live feed <span>→</span></a></div>
+    <p class="muted small" style="margin:-12px 0 16px">Every story above is fetched live from these publisher RSS feeds. Failed feeds show as Offline — never replaced with filler.</p>
+    <div class="sources-grid" id="sourcesGrid">
+      <div class="skel skel-row"></div><div class="skel skel-row"></div><div class="skel skel-row"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SAVED VIEW ================= -->
+<div id="view-saved" hidden>
+  <section class="section page-head">
+    <p class="kicker">Your library</p><h2>Saved Stories</h2>
+    <p class="muted">Bookmarks and recently viewed stories are stored locally in your browser.</p>
+    <div class="news-list" id="savedList" style="margin-top:22px"></div>
+  </section>
+</div>
+
+<!-- ================= CATEGORY / LATEST / TRENDING full views reuse home feed via scroll; anchors handled by router ================= -->
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo-word">TECH<span>PULSE</span></span>
+      <p>All Tech News. One Place.</p>
+      <p class="disclaimer">TechPulse aggregates links and summaries from external sources. Original content belongs to its respective publishers.</p>
+    </div>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#/about">About</a><a href="#/sources">Sources</a><a href="#/privacy">Privacy</a><a href="#/terms">Terms</a><a href="#/contact">Contact</a>
+    </nav>
+    <div class="footer-meta"><span id="year"></span> TechPulse · Live RSS aggregation · No API keys in client</div>
+  </div>
+</footer>
+
+<!-- Mobile bottom nav -->
+<nav class="bottom-nav" aria-label="Mobile quick nav">
+  <a href="#/" data-bnav="home">Home</a><a href="#/latest" data-bnav="latest">Latest</a>
+  <a href="#/trending" data-bnav="trending">Trending</a><a href="#/saved" data-bnav="saved">Saved</a>
+</nav>
+
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

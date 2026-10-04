@@ -1,0 +1,12 @@
+{
+  "name": "techpulse",
+  "version": "2.0.0",
+  "description": "TechPulse — live tech news aggregator (server-side RSS ingestion, zero dependencies)",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
