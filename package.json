@@ -4,7 +4,8 @@
   "description": "TechPulse — live tech news aggregator (server-side RSS ingestion, zero dependencies)",
   "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "node scripts/build-check.js"
   },
   "engines": {
     "node": ">=18"

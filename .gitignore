@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Vercel
+.vercel/
+
+# Environment / secrets — never commit these
+.env
+.env.local
+.env.*.local
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+*.log
